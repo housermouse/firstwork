@@ -1,7 +1,7 @@
 ## 第二次实验
 ### JAVA访问权限修饰符的掌握
 编写一个具有public、private、protected、default访问权限的数据成员和成员函数的class。为它产生一个对象并进行观：当你尝试取用所有class成员时、会产生什么类型的编译消息。
- 部分代码实现：
+ - 部分代码实现：
  <pre><code>
 	public class first_question {
 		public int number = 0;
@@ -34,7 +34,7 @@ public void fill() {…} 向锅炉填满巧克力和牛奶的混合物。首先�
 public void boil() {…} 将炉内煮沸。首先判断标志位，只有锅炉是满的，并且没有煮过，才能进行该操作（煮沸操作打印一条语句即可）。煮沸后boiled标志位设置为true。
 public void drain() {…} 排出煮沸的巧克力和牛奶。首先要进行标志位判断，只有锅炉是满的，并且锅炉已经煮沸之后，才能排出混合物（排出混合物的动作打印一条语句即可），排出混合物之后设置empty为true。
 isEmpty和isBoiled方法来获取empty和boiled标志位的值
-部分代码实现：
+ - 部分代码实现：
  <pre><code>
  ChoclateBoiler类：
 	public class ChoclateBoiler {
@@ -85,6 +85,6 @@ main类：
 	}
 	</pre></code>
  - 实验结果	：
-对锅炉进行填充
-煮沸锅炉里的材料
-排出混合物
+1. 对锅炉进行填充
+2. 煮沸锅炉里的材料
+3. 排出混合物
