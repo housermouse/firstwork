@@ -4,7 +4,7 @@
 否为闰年的条件是：
 （1）若年号能被4整除，而不能被100整除，则是闰年；
 （2）若年号能被400整除也是闰年。
- 部分代码实现：
+ - 部分代码实现：
  <pre><code>
 	 public static void runnian(){
 		int num = 0;
@@ -33,7 +33,7 @@
 中：[79,70]
 及格：[69,60]
 不及格：[0,59]
-部分代码实现：
+ - 部分代码实现：
  <pre><code>
 	 public static void ToGradeScore(){
 		double[] score={99.5,88.5,77.5,66.5,55.5,44.5};
@@ -61,7 +61,7 @@
 
 ### 打印图案
 利用for循环编写一个程序，将如下图案分别打印输出。
-部分代码实现：
+ - 部分代码实现：
  <pre><code>
 	 public static void third(){
 		int max=7;
@@ -94,7 +94,7 @@
 
 ### 水仙花数
 编写程序找出所有的水仙花数；水仙花数是三位数，它的各位数字的立方和等于这个三位数本身。
-部分代码实现：
+ - 部分代码实现：
  <pre><code>
 	 public static void Narcissistic_number(){
 		for(int i = 1 ; i < 10 ; i++)
