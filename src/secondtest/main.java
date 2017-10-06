@@ -8,7 +8,7 @@ public class main {
 		ChoclateBoiler.fill();
 		ChoclateBoiler.boil();
 		ChoclateBoiler.drain();
-		first_question a=new first_question();
-		System.out.println(a.getClasses());
+		//first_question a=new first_question();
+		//System.out.println(a.getClasses());
 	}
 }
