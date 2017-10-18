@@ -88,3 +88,125 @@ main类：
 1. 对锅炉进行填充
 2. 煮沸锅炉里的材料
 3. 排出混合物
+
+### 工厂模式练习
+类PizzaStore披萨商店要接收披萨订单生产披萨，其
+Public Pizza orderPizza(String type)根据披萨类型type完成披萨制作，并返回一个Pizza实例(实际上要返回一个其子类实例)。制作过程包括（pizza.prepare(); pizza.bake(); pizza.cut(); pizza.box()）
+Pizza是个抽象类，其有三个子类实现：CheesePizza,PepperoniPizza和ClamPizza。Pizza中的抽象方法有
+prepare();//准备材料
+bake();//烘焙披萨
+cut();//切割披萨
+box();//披萨装包
+SimplePizzaFactory是一个披萨对象生成“工厂”，根据不同的type生成不同的Pizza实例（其实是 CheesePizza,PepperoniPizza, ClamPizza 中的一种）。利用public Pizza createPizza(String type)方法生成具体的Pizza实例，如果type是”cheese”生成CheesePizza，是”pepperoni”生成PepperoniPizza，是”clam”生成ClamPizza。
+PizzaStore的构造函数需要传入SimplePizzaFactory实例，并且在orderPizza方法中利用SimplePizzaFactory实例首先生成一个具体的Pizza子类实例，然后进行披萨生产，包括pizza.prepare; pizza.bake(); pizza.cut(); pizza.box()，最后返回该Pizza子类实例。
+- 部分代码实现：
+<pre><code>
+Pizza类：
+public abstract class Pizza{
+	 abstract void prepare();
+	 abstract void bake();
+	 abstract void cut();
+	 abstract void box();	 			 
+}
+
+PizzaStore类：
+public class PizzaStore {
+	public SimplePizzaFactory orderPizza(String type) {
+		SimplePizzaFactory factory=new SimplePizzaFactory(type);
+		factory.createPizza(type).prepare();
+		factory.createPizza(type).bake();
+		factory.createPizza(type).cut();
+		factory.createPizza(type).box();
+		return factory;
+	};		
+}
+
+CheesePizza类：
+public class CheesePizza extends Pizza{
+	void prepare() {
+		System.out.println("Prepare Chesspizza");
+	};
+	void bake() {
+		System.out.println("Bake Chesspizza");
+	};
+	void cut() {
+		System.out.println("Cut Chesspizza");
+	};
+	void box() {
+		System.out.println("Prepare Chesspizza");
+	};
+}
+
+ClamPizza类：
+public class ClamPizza  extends Pizza{
+	void prepare() {
+		System.out.println("Prepare Clampizza");
+	};
+	void bake() {
+		System.out.println("Bake Clampizza");
+	};
+	void cut() {
+		System.out.println("Cut Clampizza");
+	};
+	void box() {
+		System.out.println("Prepare Clampizza");
+	};
+}
+
+PepperoniPizza类：
+public class PepperoniPizza extends Pizza{
+	void prepare() {
+		System.out.println("Prepare Pepperonipizza");
+	};
+	void bake() {
+		System.out.println("Bake Pepperonipizza");
+	};
+	void cut() {
+		System.out.println("Cut Pepperonipizza");
+	};
+	void box() {
+		System.out.println("Prepare Pepperonipizza");
+	};
+}
+
+SimplePizzaFactory类：
+import secondtest.CheesePizza;
+import secondtest.ClamPizza;
+import secondtest.PepperoniPizza;
+
+public class SimplePizzaFactory{
+	public String type;
+	public SimplePizzaFactory(String type) {
+		// TODO 自动生成的构造函数存根
+		this.type = type;
+		Pizza pizza=createPizza(type);				
+	}
+	public Pizza createPizza(String type) {
+		if(type.equals("cheese")) {
+			 Pizza cheese=new CheesePizza();
+			 return cheese;
+		 }
+		 else if(type.equals("pepperoni")) {
+			 Pizza pepperoni=new PepperoniPizza();
+			 return pepperoni;
+		 }
+		 else{
+			 Pizza clam=new ClamPizza();
+			 return clam;
+		 }
+	}
+}
+
+main类：
+public static void main(String[] args) {
+	PizzaStore customer=new PizzaStore();
+	String type = "cheese";
+	customer.orderPizza(type);
+}
+</pre></code>
+
+- 实验结果	：
+1. Prepare Chesspizza
+2. Bake Chesspizza
+3. Cut Chesspizza
+4. Prepare Chesspizza
