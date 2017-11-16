@@ -28,7 +28,6 @@ public class createTask {
 			str=str+item[i].getTaskID()+" "+item[i].getArrivalTime()+" "+
 			item[i].getServiceTime()+"\n";
 		}
-		//System.out.println(str);
 		File file;//创建文件夹
 		FileOutputStream stream = null;//new文件流
 		try {
