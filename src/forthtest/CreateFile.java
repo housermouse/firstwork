@@ -32,6 +32,7 @@ public class CreateFile {
 		System.out.println("文件中的内容是："+new String(byt,0,len));
 		fi1.close();
 	}
+	
 }
 
 

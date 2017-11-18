@@ -4,9 +4,21 @@ import java.io.IOException;
 
 public class main {
 	public static void main(String[] args) throws IOException {
-		//CreateFile CF=new CreateFile();
-		//CF.createFile();
-		getFileTree GF =new getFileTree();
-		GF.getInformation();
+		//getFileTree GF =new getFileTree();
+		//GF.getInformation();
+        /*long start = System.currentTimeMillis();  
+        CopyFileWithBuffer cfwb =new CopyFileWithBuffer();
+		cfwb.copyFileWithBuffer(); 
+        long end = System.currentTimeMillis();   
+        System.out.println(end - start + "ms");  
+        start = System.currentTimeMillis();  
+        CopyFile cf =new CopyFile();
+		cf.copyFile(); 
+        end = System.currentTimeMillis();   
+        System.out.println(end - start + "ms"); */
+		StudentSerialization a=new StudentSerialization();
+		a.readFile();
+		a.serialization();
+		a.show();
 	}
 }
