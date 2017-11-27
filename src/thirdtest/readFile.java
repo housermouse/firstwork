@@ -4,27 +4,30 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.Scanner;
+
+import forthtest.Student;
 
 public class readFile {
 	public Task[] readFile() {
 		try { 
 			Task[] item = new Task[100];
-			File file = new File("F:\\JAVA\\workspace\\firsttest\\src\\thirdtest\\File.txt");   
+			File file = new File("F:\\JAVA\\workspace\\firsttest\\src\\thirdtest\\input.txt");   
 			if (file.isFile() && file.exists()) {   
-				InputStreamReader read = new InputStreamReader(new FileInputStream(file));   
-				BufferedReader bufferedReader = new BufferedReader(read);   
-				String lineTXT = null;int temp=0;  
-				
-				while ((lineTXT = bufferedReader.readLine()) != null) {
-					String[] split=lineTXT.split(" ");
+				FileInputStream fis =new FileInputStream(file);
+				Scanner reader=new Scanner(fis);		
+					int temp=0;
+				while (reader.hasNext()) {
+					
 					item[temp]=new Task();
-					item[temp].setTaskID(Integer.parseInt(split[0]));
-					item[temp].setArrivalTime(Integer.parseInt(split[1]));
-					item[temp].setServiceTime(Integer.parseInt(split[2]));
-					//System.out.println(split[0]+" "+split[1]+" "+split[2]);   
+					item[temp].setTaskID(reader.nextInt());
+					item[temp].setArrivalTime(reader.nextInt());
+					item[temp].setServiceTime(reader.nextInt());
+					/*System.out.println(item[temp].getTaskID()+" "+item[temp].getArrivalTime()
+							+" "+item[temp].getServiceTime());  */ 
 					temp++;
 				}  
-				read.close();   
+				reader.close();   
 				return item;
 			}else{   
 				System.out.println("找不到指定的文件！");   

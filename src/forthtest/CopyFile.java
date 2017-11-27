@@ -27,6 +27,8 @@ public class CopyFile {
 			FileInputStream fi1 = new FileInputStream(file2);
 			byte byt[] = new byte[20000];
 			int len = fi1.read(byt);
+			/*System.out.println("文件中的内容是：");
+			System.out.println(new String(byt,0,len));*/
 			fi1.close();
 			fi1.close();
 		} catch (FileNotFoundException e) {

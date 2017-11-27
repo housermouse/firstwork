@@ -6,6 +6,7 @@ import java.util.Queue;
 
 public class FCFS {
 	private Queue<Task> queue = new LinkedList<Task>(); 
+	private Task[] show=new Task[100];
 	public void oneQueue() {
 		Task[] work=new Task[100];
 		readFile read=new readFile();		
@@ -13,7 +14,7 @@ public class FCFS {
 		for(int i=0;i<100;i++) {
 			queue.add(work[i]);
 		}
-		System.out.println("TaskId  到达时间          开始时间       服务时间       完成时间      周转时间      带权周转时间");
+		System.out.println("TaskId    到达时间      服务时间      开始时间      完成时间      周转时间      带权周转时间");
 		int nowTime=0;
 		for(int i=0;i<100;i++) {
 			Task temp=queue.poll();
@@ -26,11 +27,13 @@ public class FCFS {
 			temp.setFinishingTime(finishingTime);
 			turnAroundTime=finishingTime-temp.getArrivalTime();
 			temp.setTurnAroundTime(turnAroundTime);
-			weightTurnAround=turnAroundTime*1.0/temp.getServiceTime();			
-			System.out.println(temp.getTaskID()+"           "+temp.getArrivalTime()+"           "+
+			weightTurnAround=turnAroundTime*1.0/temp.getServiceTime();	
+			temp.setWeightTurnAround(weightTurnAround);
+			/*System.out.println(temp.getTaskID()+"           "+temp.getArrivalTime()+"           "+
 			temp.getStartingTime()+"           "+temp.getServiceTime()+"           "+
-			finishingTime+"           "+turnAroundTime+"         "+weightTurnAround);
-			nowTime=nowTime+temp.getServiceTime();				
+			finishingTime+"           "+turnAroundTime+"         "+weightTurnAround);*/
+			nowTime=nowTime+temp.getServiceTime();		
+			show[temp.getTaskID()-1]=temp;
 		}	
 		queue.clear();
 	}
@@ -41,7 +44,7 @@ public class FCFS {
 		for(int i=0;i<100;i++) {
 			queue.add(work[i]);
 		}
-		System.out.println("TaskId    队列ID    到达时间          开始时间       服务时间       完成时间      周转时间      带权周转时间");
+		System.out.println("TaskId    到达时间      服务时间      开始时间      完成时间      周转时间      带权周转时间");
 		int nowTime1=0;
 		int nowTime2=1;
 		for(int i=0;i<100;i++) {
@@ -56,11 +59,13 @@ public class FCFS {
 				temp.setFinishingTime(finishingTime);
 				turnAroundTime=finishingTime-temp.getArrivalTime();
 				temp.setTurnAroundTime(turnAroundTime);
-				weightTurnAround=turnAroundTime*1.0/temp.getServiceTime();			
-				System.out.println(temp.getTaskID()+"         "+1+"        "+temp.getArrivalTime()+"           "+
+				weightTurnAround=turnAroundTime*1.0/temp.getServiceTime();	
+				temp.setWeightTurnAround(weightTurnAround);
+				/*System.out.println(temp.getTaskID()+"         "+1+"        "+temp.getArrivalTime()+"           "+
 				temp.getStartingTime()+"           "+temp.getServiceTime()+"           "+
-				finishingTime+"           "+turnAroundTime+"         "+weightTurnAround);
+				finishingTime+"           "+turnAroundTime+"         "+weightTurnAround);*/
 				nowTime1=nowTime1+temp.getServiceTime();
+				show[temp.getTaskID()-1]=temp;
 			}
 			else {
 				Task temp=queue.poll();
@@ -73,13 +78,20 @@ public class FCFS {
 				temp.setFinishingTime(finishingTime);
 				turnAroundTime=finishingTime-temp.getArrivalTime();
 				temp.setTurnAroundTime(turnAroundTime);
-				weightTurnAround=turnAroundTime*1.0/temp.getServiceTime();			
-				System.out.println(temp.getTaskID()+"         "+2+"        "+temp.getArrivalTime()+"           "+
+				weightTurnAround=turnAroundTime*1.0/temp.getServiceTime();	
+				temp.setWeightTurnAround(weightTurnAround);
+				/*System.out.println(temp.getTaskID()+"         "+2+"        "+temp.getArrivalTime()+"           "+
 				temp.getStartingTime()+"           "+temp.getServiceTime()+"           "+
-				finishingTime+"           "+turnAroundTime+"         "+weightTurnAround);
+				finishingTime+"           "+turnAroundTime+"         "+weightTurnAround);*/
 				nowTime2=nowTime2+temp.getServiceTime();
+				show[temp.getTaskID()-1]=temp;
 			}
 		}
 		queue.clear();
+	}
+	public void show() {
+		for(int i=0;i<100;i++) {
+			System.out.println("   "+show[i].toString());
+		}
 	}
 }

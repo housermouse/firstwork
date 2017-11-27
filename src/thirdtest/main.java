@@ -6,8 +6,10 @@ public class main {
 		FCFS fcfs=new FCFS();
 		//fcfs.oneQueue();
 		//fcfs.twoQueue();
+		//fcfs.show();
 		SJF sjf=new SJF();
 		//sjf.oneQueue();
 		sjf.twoQueue();
+		sjf.show();
 	}
 }

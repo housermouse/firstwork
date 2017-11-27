@@ -18,6 +18,12 @@ public class Task implements  Comparable<Task> {
 	public int getArrivalTime() {
 		return arrivalTime;
 	}
+	@Override
+	public String toString() {
+		return  taskID + "          " + arrivalTime + "         " + serviceTime
+				+ "           " + startingTime + "        " + finishingTime + "        "
+				+ turnAroundTime + "           " + weightTurnAround;
+	}
 	public void setArrivalTime(int arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}

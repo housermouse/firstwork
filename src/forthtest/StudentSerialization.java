@@ -58,13 +58,13 @@ public class StudentSerialization {
 		} catch (FileNotFoundException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
 		}catch (IOException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}	 
+		} 
 	}
 	
 }
