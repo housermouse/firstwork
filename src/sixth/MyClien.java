@@ -79,7 +79,7 @@ public class MyClien extends JFrame { // 创建类继承JFrame类
 	
 	public static void main(String[] args) { // 主方法
 		MyClien clien = new MyClien("向服务器送数据"); // 创建本例对象
-		clien.setSize(200, 200); // 设置窗体大小
+		clien.setSize(400, 400); // 设置窗体大小
 		clien.setVisible(true); // 将窗体显示
 		clien.connect(); // 调用连接方法
 		clien.getServiceMessage();

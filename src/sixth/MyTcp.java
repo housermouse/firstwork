@@ -94,7 +94,7 @@ public class MyTcp extends JFrame{ // 创建类MyTcp
 	
 	public static void main(String[] args) { // 主方法
 		MyTcp tcp = new MyTcp("服务器启动"); // 创建本类对象
-		tcp.setSize(200, 200); // 设置窗体大小
+		tcp.setSize(400, 400); // 设置窗体大小
 		tcp.setVisible(true); // 将窗体显示
 		tcp.getserver(); // 调用方法
 	}
