@@ -100,7 +100,7 @@ public class ThreadSum implements Runnable{
 
 ```
 ## 结果截图
-![enter description here][4]
+![enter description here][2]
 
 
   [1]: ./1.png "1"
