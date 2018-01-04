@@ -10,7 +10,7 @@ tags: JAVA,面向对象,基础
 
 
 #### 部分代码
-####客户机：
+#### 客户机：
 ```java
 public class MyClien extends JFrame { // 创建类继承JFrame类
 	/**
@@ -91,7 +91,7 @@ public class MyClien extends JFrame { // 创建类继承JFrame类
 	}
 }
 ```
-####服务器：
+#### 服务器：
 ```java
 public class MyTcp extends JFrame{ // 创建类MyTcp
 	private BufferedReader reader; // 创建BufferedReader对象
